@@ -1,0 +1,29 @@
+<div ng-if="toDoList==null">Welcome to the to the To-Do App</div>
+
+<div ng-if="toDoList!=null">
+	<div ng-if="toDoList.length==0">No Task added Yet , Please add a
+		task.
+		<button type="button" class="btn btn-primary btn-md" ng-click="gotoAdd()">Add a Task</button></div>
+	<div ng-if="toDoList.length!=0">
+		<table id="payloadTable" class="table table-striped table-bordered">
+			<thead style="background-color: #2F4F4F; color: white">
+				<tr>
+					<th>Task Name</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="todo in toDoList">
+					<td class="center">{{todo.taskName}}</td>
+					<td class="center">{{todo.completed ? "Completed" :
+						"Pending"}}</td>
+					<td class="centered-text" ng-click="editData(todo)">
+						<button type="button" class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span> Edit
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
